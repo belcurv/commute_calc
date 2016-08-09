@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        
+        <!-- JS -->
+        <script src="js/vendor/angular.js"></script>
+        <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+        <script src="js/app.js"></script>
+    </head>
+
+    <body ng-app="commuteApp" ng-controller="commuteController" class="jumbotron">
+        <div class="container row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="origin">Origin:</label>
+                    <input class="form-control" id="origin"
+                           ng-model="myObj.origin" type="text" />
+                </div>
+                <div class="form-group">
+                    <label for="origin">Destination:</label>
+                    <input class="form-control" id="destination"
+                           ng-model="myObj.destination" type="text" />
+                </div>
+
+                <button type="submit" class="btn btn-success"
+                        ng-click="myObj.calcCommute()">Calculate</button>
+                
+            </div>
+            <div class="col-md-6">
+                <h4>Distance (by car): {{ myObj.distance }}</h4>
+                <h4>Duration: {{ myObj.duration }}</h4>
+                <h4>DistanceMatrixResponse object:</h4>
+                <pre>{{ myObj.responseObject }}</pre>
+            </div>
+        </div>
+    </body>
+</html>
